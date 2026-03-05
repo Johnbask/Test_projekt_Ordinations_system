@@ -43,6 +43,12 @@ public class Patient {
         this.ordinationer = ordinationer;
     }
 
+    public void addOrdination(Ordination ordination){
+        if (!ordinationer.contains(ordination)) {
+            ordinationer.add(ordination);
+        }
+    }
+
     @Override
     public String toString(){
         return navn + "  " + cprnr;
