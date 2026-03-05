@@ -68,7 +68,7 @@ public class Controller {
 			throw new IllegalArgumentException("End date is before start date");
 		}
 		if (klokkeSlet.length!=antalEnheder.length){
-			throw new IllegalArgumentException("number of elements in arrays \"KlokkeSlet\" and \"AntalEnheder\" is not the same")
+			throw new IllegalArgumentException("number of elements in arrays \"KlokkeSlet\" and \"AntalEnheder\" is not the same");
 		}
 		DagligSkaev dagligSkaev = new DagligSkaev(startDen,slutDen);
 		for (int i = 0; i < klokkeSlet.length; i++) {
