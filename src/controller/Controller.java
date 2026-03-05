@@ -7,6 +7,8 @@ import java.util.List;
 import ordination.*;
 import storage.Storage;
 
+import javax.swing.plaf.SliderUI;
+
 public class Controller {
 	private Storage storage;
 	private static Controller controller;
@@ -99,7 +101,12 @@ public class Controller {
 	 * Pre: ordination og dato er ikke null
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-		// TODO
+		if (dato.isAfter(ordination.getStartDen()) && dato.isBefore(ordination.getSlutDen())
+				|| dato.equals(ordination.getStartDen()) || dato.equals(ordination.getSlutDen())) {
+			ordination.givDosis(dato);
+		} else {
+			throw new IllegalArgumentException("Not a valid date");
+		}
 	}
 
 	/**
