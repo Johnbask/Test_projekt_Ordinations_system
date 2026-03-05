@@ -110,7 +110,15 @@ public class Controller {
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
 		//TODO
-		return 0;
+		double vægtGangeFaktor;
+		if (patient.getVaegt() < 25) {
+			vægtGangeFaktor = laegemiddel.getEnhedPrKgPrDoegnLet() * patient.getVaegt();
+		} else if (patient.getVaegt() <= 120) {
+			vægtGangeFaktor = laegemiddel.getEnhedPrKgPrDoegnNormal() * patient.getVaegt();
+		} else {
+			vægtGangeFaktor = laegemiddel.getEnhedPrKgPrDoegnTung() * patient.getVaegt();
+		}
+		return vægtGangeFaktor;
 	}
 
 	/**
