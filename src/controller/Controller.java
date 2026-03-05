@@ -50,9 +50,12 @@ public class Controller {
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
 		DagligFast dagligFast = new DagligFast(startDen, slutDen, morgenAntal, middagAntal, aftenAntal, natAntal);
-		dagligFast.setLaegemiddeler(laegemiddel);
-
-		return null;
+		if (startDen.isAfter(slutDen)) {
+			throw new IllegalArgumentException("Start dato skal være før slut dato");
+		}
+		dagligFast.setLaegemiddel(laegemiddel);
+		patient.addOrdination(dagligFast);
+		return dagligFast;
 	}
 
 	/**
