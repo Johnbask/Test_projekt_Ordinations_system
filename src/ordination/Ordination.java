@@ -8,12 +8,11 @@ public abstract class Ordination {
     private LocalDate startDen;
     private LocalDate slutDen;
     // Link til Laegemiddel
-    private ArrayList<Laegemiddel> laegemiddeler;
+    private Laegemiddel laegemiddel;
 
     public Ordination(LocalDate startDen, LocalDate slutDen) {
         this.startDen = startDen;
         this.slutDen = slutDen;
-        this.laegemiddeler = new ArrayList<>();
     }
 
     // TODO Link til Laegemiddel
