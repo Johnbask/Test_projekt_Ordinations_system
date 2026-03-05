@@ -37,6 +37,10 @@ public class DagligFast extends Ordination{
         return super.antalDage();
     }
 
+    public Dosis[] getDoser() {
+        return doser;
+    }
+
     @Override
     public String getType() {
         return "DagligFast";
