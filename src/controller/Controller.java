@@ -64,11 +64,20 @@ public class Controller {
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
+		if (slutDen.isBefore(startDen)) {
+			throw new IllegalArgumentException("End date is before start date");
+		}
+		if (klokkeSlet.length!=antalEnheder.length){
+			throw new IllegalArgumentException("number of elements in arrays \"KlokkeSlet\" and \"AntalEnheder\" is not the same")
+		}
 		DagligSkaev dagligSkaev = new DagligSkaev(startDen,slutDen);
-		dagligSkaev.setLaegemiddel();
-		// TODO
+		for (int i = 0; i < klokkeSlet.length; i++) {
+			dagligSkaev.opretDosis(klokkeSlet[i],antalEnheder[i]);
+		}
+		dagligSkaev.setLaegemiddel(laegemiddel);
+		patient.addOrdination(dagligSkaev);
 
-		return null;
+		return dagligSkaev;
 	}
 
 	/**
