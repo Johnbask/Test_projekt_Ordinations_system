@@ -18,7 +18,7 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public double samletDosis() {
-        return doegnDosis()*dosisArrayList.size();
+        return doegnDosis()*super.antalDage();
     }
 
     @Override
