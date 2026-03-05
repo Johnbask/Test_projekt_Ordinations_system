@@ -129,7 +129,17 @@ public class Controller {
 	public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
 			double vægtSlut, Laegemiddel laegemiddel) {
 		// TODO
-		return 0;
+		int antalOrdinationer = 0;
+		for (Patient patient : getAllPatienter()){
+			if (patient.getVaegt()>= vægtStart && patient.getVaegt()<=vægtSlut){
+				for (Ordination ordination : patient.getOrdinationer()){
+					if (ordination.getLaegemiddel()==laegemiddel){
+						antalOrdinationer++;
+					}
+				}
+			}
+		}
+		return antalOrdinationer;
 	}
 
 	public List<Patient> getAllPatienter() {
