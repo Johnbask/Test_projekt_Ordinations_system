@@ -8,11 +8,19 @@ public abstract class Ordination {
     private LocalDate startDen;
     private LocalDate slutDen;
     // Link til Laegemiddel
-    private Laegemiddel laegemiddel;
+    private Laegemiddel laegemiddeler;
 
     public Ordination(LocalDate startDen, LocalDate slutDen) {
         this.startDen = startDen;
         this.slutDen = slutDen;
+    }
+
+    public Laegemiddel getLaegemiddeler() {
+        return laegemiddeler;
+    }
+
+    public void setLaegemiddeler(Laegemiddel laegemiddeler) {
+        this.laegemiddeler = laegemiddeler;
     }
 
     // TODO Link til Laegemiddel
