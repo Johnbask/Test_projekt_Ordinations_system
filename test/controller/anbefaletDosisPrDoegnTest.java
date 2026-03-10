@@ -12,15 +12,17 @@ import static controller.Controller.getController;
 class anbefaletDosisPrDoegnTest {
     private Patient p;
     private Laegemiddel lm;
-    // forventet er variable, der består af det forventede resultat
+    // variable, der består af det forventede resultat
     double forventet;
-    // aktuelle er variable, der består af det aktuelle resultat
+    // variable, der består af det aktuelle resultat
     double aktuelle;
     @BeforeEach
     void setUp() {
         p = new Patient("240697-0825", "Aksel", 24);
         lm = new Laegemiddel("Paracetamol", 1,1.5,2,"ml");
     }
+
+    //Vi tester om beregning af doegnDosis er korrekt alt afhængig af patientens vægt
 
     @Test
     @Order(1)

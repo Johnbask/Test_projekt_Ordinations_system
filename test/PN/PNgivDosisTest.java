@@ -23,20 +23,28 @@ public class PNgivDosisTest {
         pnOrdination = new PN(LocalDate.of(2026,3,9), LocalDate.of(2026,7,15),10);
     }
 
+    // Vi tester om datoen for givning af dosis er indenfor startDato og slutDato for den oprettede ordination
+    // Vi tester om datoen for givning af dosis indsættes i datoerIndtaget listen
+
     @Test
     @Order(1)
     void test_PN_GivDosis_TC1_GraenseVaerdi() {
         //ACT - ASSERT
+
         ordineret = pnOrdination.givDosis(LocalDate.of(2026,3,9));
+        // Vi tester om datoen for givning af dosis indsættes i datoerIndtaget listen
         dato = LocalDate.of(2026,3,9);
         assertTrue(ordineret);
         assertTrue(pnOrdination.getDatoerIndtaget().contains(dato));
     }
 
+    // Test gentages med nye datoer for givning af dosis.
+
     @Test
     @Order(2)
     void test_PN_GivDosis_TC2_GraenseVaerdi() {
         // ACT - ASSERT
+
         ordineret = pnOrdination.givDosis(LocalDate.of(2026,7,15));
         dato = LocalDate.of(2026,7,15);
         assertTrue(ordineret);

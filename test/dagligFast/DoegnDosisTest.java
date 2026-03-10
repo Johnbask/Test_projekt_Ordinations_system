@@ -20,6 +20,9 @@ class DoegnDosisTest {
         df = new DagligFast(LocalDate.of(2026,3,9), LocalDate.of(2026,3,20),1,1,1,1);
     }
 
+    // Vi tester om beregningen af døgn dosis for dagligFast ordination er korrekt.
+    // Dette gøres med forskellige værdier på henholdsvis morgen, middag, aften og nat
+
     @Test
     @Order(1)
     void test_DoegnDosis_TC1_BasisVaerdi() {
