@@ -46,6 +46,7 @@ public class PNgivDosisTest {
     @Test
     @Order(3)
     void test_PN_GivDosis_TC3_BasisVaedi() {
+        // ACT - ASSERT
         ordineret = pnOrdination.givDosis(LocalDate.of(2026,4,20));
         dato = LocalDate.of(2026,4,20);
         assertTrue(ordineret);
@@ -55,6 +56,7 @@ public class PNgivDosisTest {
     @Test
     @Order(4)
     void test_PN_GivDosis_TC4_Ugyldig() {
+        // ACT - ASSERT
         ordineret = pnOrdination.givDosis(LocalDate.of(2026,3,8));
         dato = LocalDate.of(2026,3,8);
         assertFalse(ordineret);
@@ -64,6 +66,7 @@ public class PNgivDosisTest {
     @Test
     @Order(5)
     void test_PN_GivDosis_TC5_Ugyldig() {
+        // ACT - ASSERT
         ordineret = pnOrdination.givDosis(LocalDate.of(2026,7,16));
         dato = LocalDate.of(2026,7,16);
         assertFalse(ordineret);
