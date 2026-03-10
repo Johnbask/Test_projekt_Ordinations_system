@@ -53,6 +53,7 @@ class opretDagligSkaev {
         assertTrue(patient.getOrdinationer().contains(result));
     }
 
+    // TC3 ugyldig: startDen > slutDen = IllegalArgumentException
     @Test
     void test_opretDagligSkaevOrdination_TC3_Ugyldig() {
         LocalDate startDen = LocalDate.of(2026, 3, 10);
@@ -67,6 +68,7 @@ class opretDagligSkaev {
         assertEquals("End date is before start date", exception.getMessage());
     }
 
+    // TC4 ugyldig: klokkeSlet længere end antalEnheder = IllegalArgumentException
     @Test
     void test_opretDagligSkaevOrdination_TC4_Ugyldig() {
         LocalDate dato = LocalDate.of(2026, 3, 9);
@@ -80,6 +82,7 @@ class opretDagligSkaev {
         assertEquals("number of elements in arrays \"KlokkeSlet\" and \"AntalEnheder\" is not the same", exception.getMessage());
     }
 
+    // TC5 ugyldig: antalEnheder længere end klokkeSlet = IllegalArgumentException
     @Test
     void test_opretDagligSkaevOrdination_TC5_Ugyldig() {
         LocalDate dato = LocalDate.of(2026, 3, 9);
