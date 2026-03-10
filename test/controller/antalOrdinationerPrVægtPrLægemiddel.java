@@ -49,6 +49,10 @@ class antalOrdinationerPrVægtPrLægemiddel {
         controller.opretDagligSkaevOrdination(LocalDate.of(2021, 1, 23), LocalDate.of(2021, 1, 24), p4, laegemiddel2, kl, an);
     }
 
+    /*
+    TC1 grænseværdi: vægte præcis på grænsen (63 og 88), laegemiddel1
+    Forventer 2: patient 1 har vægt = 63, og patient 2 har vægt = 88 begge har laegemiddel1
+    */
     @Test
     void TC1_antalOrdinationerPrVægtPrLægemiddel_grænseværdi_laegemiddel1() {
         int result = controller.antalOrdinationerPrVægtPrLægemiddel(63, 88, laegemiddel1);
@@ -56,6 +60,10 @@ class antalOrdinationerPrVægtPrLægemiddel {
         assertEquals(2, result);
     }
 
+    /*
+    TC2 grænseværdi: vægte præcis på grænsen (63 og 88), laegemiddel2
+    Forventer 1: kun patient 1 med vægt = 63 har laegemiddel2
+    */
     @Test
     void TC2_antalOrdinationerPrVægtPrLægemiddel_grænseværdi_laegemiddel2() {
         int result = controller.antalOrdinationerPrVægtPrLægemiddel(63, 88, laegemiddel2);
@@ -63,6 +71,10 @@ class antalOrdinationerPrVægtPrLægemiddel {
         assertEquals(1, result);
     }
 
+    /*
+    TC3 Grænseværdi: vægte er på den eksklusive grænse (64 til 87), ingen patienter er på intervallet
+    Forventer 0: ingen patienter har vægt mellem 64 og 87
+    */
     @Test
     void TC3_antalOrdinationerPrVægtPrLægemiddel_grænseværdi_laegemiddel1() {
         int result = controller.antalOrdinationerPrVægtPrLægemiddel(64, 87, laegemiddel1);
@@ -70,6 +82,10 @@ class antalOrdinationerPrVægtPrLægemiddel {
         assertEquals(0, result);
     }
 
+    /*
+    TC4 grænseværdi: Her er der bredt interval på vægte (62 til 89), alle 4 patienter er inkluderet
+    Forventer 4: patient 1, 2, 3 og 4 har alle laegemiddel1
+    */
     @Test
     void TC4_antalOrdinationerPrVægtPrLægemiddel_grænseværdi_laegemiddel1() {
         int result = controller.antalOrdinationerPrVægtPrLægemiddel(62, 89, laegemiddel1);
@@ -77,6 +93,10 @@ class antalOrdinationerPrVægtPrLægemiddel {
         assertEquals(4, result);
     }
 
+    /*
+    TC5 basisdata: vægtStart > vægtSlut (100 > 0)
+    Forventer 0: ingen patienter opfylder den omvendte interval
+    */
     @Test
     void TC5_antalOrdinationerPrVægtPrLægemiddel_basisData_laegemiddel1() {
         int result = controller.antalOrdinationerPrVægtPrLægemiddel(100, 0, laegemiddel1);
